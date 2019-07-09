@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Pharmacist = function (id, name, age, address) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.getId = function () {
+            return this.id;
+        };
+        this.setId = function () {
+            this.id = id;
+        };
+        this.getName = function () {
+            return this.name;
+        };
+        this.setName = function () {
+            this.name = name;
+        };
+        this.getAge = function () {
+            return this.age;
+        };
+        this.setAge = function () {
+            this.age = age;
+        };
+        this.getAddress = function () {
+            return this.address;
+        };
+        this.setAddress = function () {
+            this.address = address;
+        };
+    };
+    let PharmacistManager = function () {
+        let listPharmacist = [];
+        this.addPharmacist = function (pharmacist) {
+            listPharmacist.push(pharmacist);
+        };
+        this.getPharmacist = function () {
+            return listPharmacist;
+        }
+    };
+    let Pharmacist1 = new Pharmacist( 1, " Nguyen Hoa " , 25 , " Cầu Giấy Hà Nội ");
+    let Pharmacist2 = new Pharmacist( 2, " Ngoc Trinh " , 25 , " Hoàn Kiếm Hà Nội ");
+
+
+    let pharmacistManager1 = new PharmacistManager();
+    pharmacistManager1.addPharmacist(Pharmacist1);
+    pharmacistManager1.addPharmacist(Pharmacist2);
+    let listPharmacist = pharmacistManager1.getPharmacist();
+    for (let i = 0; i < listPharmacist.length; i++) {
+        document.write("ID:" + listPharmacist[i].getId() + "NAME:" + listPharmacist[i].getName() + "AGE:" + listPharmacist[i].getAge() + "ADDRESS:" + listPharmacist[i].getAddress() + "</br>");
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Tivi = function (channel, volume, status) {
+        this.channel = channel;
+        this.volume = volume;
+        this.status = status;
+
+        this.getChannel = function () {
+            return this.channel;
+        };
+        this.setChannel = function (channel) {
+            this.channel = channel;
+        };
+
+        this.getVolume = function () {
+            return this.volume;
+        };
+
+        this.setVolume = function (volume) {
+            this.volume = volume;
+        };
+
+        this.getStatus = function () {
+            return this.status;
+        };
+
+        this.setStatus = function (status) {
+            this.status = status;
+        };
+
+        this.moveChannel = function (numberChannel) {
+            this.currentChannel = numberChannel;
+        };
+        this.adjustVolume = function (volume) {
+            this.volume += volume;
+        };
+    };
+
+    let Remote = function (id) {
+        this.id = id;
+        this.getId = function () {
+            return this.id;
+        };
+
+        this.setId = function (id) {
+            this.id = id;
+        };
+        this.moveChannel = function (tivi,numberChannel) {
+            tivi.moveChannel(numberChannel);
+        };
+        this.upVolume = function (tivi, volume) {
+            tivi.adjustVolume(volume);
+        };
+
+        this.downVolume = function (tivi) {
+            tivi.adjustVolume(-1);
+        };
+
+        this.turnOnOffTivi = function (tivi) {
+            tivi.status = !tivi.status;
+        }
+    };
+    let tivi1 = new Tivi(1, 50, false);
+    let remote1 = new Remote(1234);
+    if (tivi1.getStatus() === false) {
+        remote1.turnOnOffTivi(tivi1);
+        document.write("Tivi da bat<br>");
+    }
+    tivi1.moveChannel(7);
+    document.write("Status: " + tivi1.getStatus() + " Tivi dang o kenh " + tivi1.getChannel() + " Volume: " + tivi1.getVolume() + "<br>");
+    remote1.moveChannel(tivi1, 3);
+    document.write("Status: " + tivi1.getStatus() + " Tivi dang o kenh " + tivi1.getChannel() + " Volume: " + tivi1.getVolume() + "<br>");
+    remote1.upVolume(tivi1, 2);
+    document.write("Status: " + tivi1.getStatus() + " Tivi dang o kenh " + tivi1.getChannel() + " Volume: " + tivi1.getVolume() + "<br>");
+    remote1.turnOnOffTivi(tivi1);
+    document.write("Status: " + tivi1.getStatus() + " Tivi dang o kenh " + tivi1.getChannel() + " Volume: " + tivi1.getVolume() + "<br>");
+    document.write("Tivi da tat");
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Rat = function (name, mass, speed, status) {
+        this.name = name;
+        this.mass = mass;
+        this.speed = speed;
+        this.status = status;
+        this.getName = function () {
+            return this.name;
+        };
+        this.setName = function () {
+            this.name = name;
+        };
+        this.getMass = function () {
+            return this.mass;
+        };
+        this.setMass = function () {
+            this.mass = mass;
+        };
+        this.getSpeed = function () {
+            return this.speed;
+        };
+        this.setSpeed = function () {
+            this.speed = speed;
+        };
+        this.getStatus = function () {
+            return this.status;
+        };
+        this.setStatus = function () {
+            this.status = status;
+        };
+        this.behavior = function (str) {
+            alert(this.name + ": " + str);
+        };
+    };
+    let Cat = function (name, weight, maxSpeed) {
+        this.name = name;
+        this.weight = weight;
+        this.maxSpeed = maxSpeed;
+        this.status = status;
+        this.getName = function () {
+            return this.name;
+        };
+        this.setName = function () {
+            this.name = name;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.setWeight = function () {
+            this.weight = weight;
+        };
+        this.getmaxSpeed = function () {
+            return this.maxSpeed;
+        };
+        this.setmaxSpeed = function () {
+            this.maxSpeed = maxSpeed;
+        };
+        this.catchRat = function (rat) {
+            if (rat.speed < this.maxSpeed) {
+                return true;
+            } else
+                return false;
+        };
+        this.eatRat = function (rat) {
+            if (rat.status) {
+                rat.status = false;
+                this.weight += rat.weight;
+            }
+        };
+    };
+
+    let rat1 = new Rat("jerry :", 10, 60, true);
+    let cat1 = new Cat("tom : ", 30, 40);
+    if (cat1.catchRat(rat1)) {
+        document.write(cat1.getName() + " co the bat duoc " + rat1.getName());
+        cat1.eatRat(rat1);
+    } else {
+        document.write(cat1.getName() + " khong bat duoc " + rat1.getName());
+    }
+    document.write("<br>" + cat1.getWeight());
+
+
+</script>
+</body>
+</html>
