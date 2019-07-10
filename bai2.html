@@ -6,60 +6,59 @@
 </head>
 <body>
 <script>
-    let Rat = function (name, mass, speed, status) {
+    let Rat = function (name, weight, speed, status) {
         this.name = name;
-        this.mass = mass;
+        this.weight = weight;
         this.speed = speed;
         this.status = status;
         this.getName = function () {
             return this.name;
         };
-        this.setName = function () {
+        this.setName = function (name) {
             this.name = name;
         };
-        this.getMass = function () {
-            return this.mass;
+        this.getWeight = function () {
+            return this.weight;
         };
-        this.setMass = function () {
-            this.mass = mass;
+        this.setWeight = function (weight) {
+            this.weight = weight;
         };
         this.getSpeed = function () {
             return this.speed;
         };
-        this.setSpeed = function () {
+        this.setSpeed = function (speed) {
             this.speed = speed;
         };
         this.getStatus = function () {
             return this.status;
         };
-        this.setStatus = function () {
+        this.setStatus = function (status) {
             this.status = status;
         };
         this.behavior = function (str) {
-            alert(this.name + ": " + str);
+            alert(this.name + " :" + str);
         };
     };
     let Cat = function (name, weight, maxSpeed) {
         this.name = name;
         this.weight = weight;
         this.maxSpeed = maxSpeed;
-        this.status = status;
         this.getName = function () {
             return this.name;
         };
-        this.setName = function () {
+        this.setName = function (name) {
             this.name = name;
         };
         this.getWeight = function () {
             return this.weight;
         };
-        this.setWeight = function () {
+        this.setWeight = function (weight) {
             this.weight = weight;
         };
-        this.getmaxSpeed = function () {
+        this.getMaxSpeed = function () {
             return this.maxSpeed;
         };
-        this.setmaxSpeed = function () {
+        this.setMaxSpeed = function (maxSpeed) {
             this.maxSpeed = maxSpeed;
         };
         this.catchRat = function (rat) {
@@ -70,23 +69,23 @@
         };
         this.eatRat = function (rat) {
             if (rat.status) {
-                rat.status = false;
-                this.weight += rat.weight;
-            }
-        };
+                rat.status = true;
+            } else
+                return false;
+            this.weight += rat.weight;
+
+        }
     };
 
-    let rat1 = new Rat("jerry :", 10, 60, true);
-    let cat1 = new Cat("tom : ", 30, 40);
+    let rat1 = new Rat("mickey:", 30, 70, true);
+    let cat1 = new Cat("TOM : ", 50, 90);
     if (cat1.catchRat(rat1)) {
-        document.write(cat1.getName() + " co the bat duoc " + rat1.getName());
+        document.write(cat1.getName() + " Bắt Được " + rat1.getName());
         cat1.eatRat(rat1);
-    } else {
-        document.write(cat1.getName() + " khong bat duoc " + rat1.getName());
+    }else {
+        document.write(cat1.getName()+ "Không bắt được "+ rat1.getName());
     }
-    document.write("<br>" + cat1.getWeight());
-
-
+    document.write("</br>" + cat1.getWeight());
 </script>
 </body>
 </html>
